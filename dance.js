@@ -119,7 +119,7 @@ function init() {
     for (let i = 0; i < n_moders; ++i) {
         let scale = Math.random() * 2 + 0.2;
         let angle = Math.random() * 2 * Math.PI
-        let len = Math.random() * 100;
+        let len = Math.max(10, Math.random() * 100);
         moders.push(new Moder(to_worldspace([canvas.width / 2, canvas.height / 2]), Math.random() * 2 * Math.PI , [scale, scale], [Math.cos(angle) * len, Math.sin(angle) * len]));
     }
 }
@@ -153,5 +153,4 @@ function frame(time) {
 }
 
 init();
-manmoder.addEventListener('load', start);
-//setTimeout(start, 0);
+manmoder.addEventListener('load', start); // works on my machine
